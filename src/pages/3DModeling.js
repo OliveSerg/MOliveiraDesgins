@@ -8,7 +8,7 @@ export default class Modeling extends React.Component {
     render(){
         return(
             <div>
-                Modeling
+                <img className="title-image" src=""/>
             </div>        
         )
     }

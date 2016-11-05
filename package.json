@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/OliveSerg/MOliveiraDesgins#readme",
   "dependencies": {
+    "axios": "^0.15.2",
     "botbuilder": "^0.9.2",
     "express": "^4.13.4",
     "jquery": "^2.2.3",
