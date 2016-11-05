@@ -1,5 +1,5 @@
-import path from 'path';
-import webpack from 'webapck';
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports ={
     context: path.join(__dirname, 'src'),
