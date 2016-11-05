@@ -17,17 +17,17 @@ export default class Nav extends React.Component {
     render(){
         const {location} = this.props;
         const {collapsed} = this.state;
-        const navClass = collapse ? "collapse" : "hidden";
+        const navClass = collapsed ? "collapse" : "hidden";
         const backButton = navClass ? "back" : "hidden";
 
         return(
-            <div class={navClass}>
-                <IndexLink to='/' onClick={this.toggleCollapse.bind(this)}>About</IndexLink>
-                <Link to='illustrations' onClick={this.toggleCollapse.bind(this)}>Illustrations</Link>
-                <Link to='' onClick={this.toggleCollapse.bind(this)}>Something</Link>
-                <Link to='' onClick={this.toggleCollapse.bind(this)}>3D Modeling</Link>
-                <input class={backButton} type='button' onCLick={this.toggleCollapse.bind(this)}/>
-            </div>        
+            <nav role='navigation' className={navClass}>
+                <IndexLink className='about nav-item' to='/' onClick={this.toggleCollapse.bind(this)}>About</IndexLink>
+                <Link className='illustration nav-item' to='illustrations' onClick={this.toggleCollapse.bind(this)}>Illustrations</Link>
+                <Link className='design nav-item' to='designs' onClick={this.toggleCollapse.bind(this)}>Graphic Design</Link>
+                <Link className='modeling nav-item' to='3d-modeling' onClick={this.toggleCollapse.bind(this)}>3D Modeling</Link>
+                <input className={backButton} type='button' onClick={this.toggleCollapse.bind(this)}/>
+            </nav>        
         )
     }
 }

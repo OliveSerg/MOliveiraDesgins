@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from '../components/Nav'
 
 export default class Layout extends React.Component {
     constructor(){
@@ -6,6 +7,15 @@ export default class Layout extends React.Component {
     }
 
     render() {
-        return(<div>Layout</div>)
+        const {location} = this.props;
+
+        return(
+            <div>
+                <Nav location={location}/>
+                <div>
+                    {this.props.children}
+                </div>
+            </div>
+        )
     }
 }
