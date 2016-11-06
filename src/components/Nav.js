@@ -22,10 +22,18 @@ export default class Nav extends React.Component {
 
         return(
             <nav role='navigation' className={navClass}>
-                <IndexLink className='about nav-item' to='/' onClick={this.toggleCollapse.bind(this)}>About</IndexLink>
-                <Link className='illustration nav-item' to='illustrations' onClick={this.toggleCollapse.bind(this)}>Illustrations</Link>
-                <Link className='design nav-item' to='designs' onClick={this.toggleCollapse.bind(this)}>Graphic Design</Link>
-                <Link className='modeling nav-item' to='3d-modeling' onClick={this.toggleCollapse.bind(this)}>3D Modeling</Link>
+                <IndexLink className='about nav-item' to='/' onClick={this.toggleCollapse.bind(this)}>
+                    About
+                </IndexLink>
+                <Link className='graphic-illustration nav-item' to='graphic-illustrations' onClick={this.toggleCollapse.bind(this)}>
+                    Graphic Illustrations
+                </Link>
+                <Link className='modeling nav-item' to='3d-modeling' onClick={this.toggleCollapse.bind(this)}>
+                    3D Modeling
+                </Link>
+                <Link className='contact nav-item' to='contact' onClick={this.toggleCollapse.bind(this)}>
+                    Contact
+                </Link>
                 <input className={backButton} type='button' onClick={this.toggleCollapse.bind(this)}/>
             </nav>        
         )

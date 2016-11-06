@@ -8,10 +8,11 @@ export default class Layout extends React.Component {
     }
 
     getImages(folder){
-        axios.get('http://localhost:8080/images')
-             .then((response)=>{
-                console.log(response)   
-             })
+        console.log(folder)
+        return axios.get(
+                'http://localhost:3000/images',
+                {params: {folder,}}
+                )
     }
 
     render() {
@@ -21,8 +22,6 @@ export default class Layout extends React.Component {
                 (child)=> 
                 React.cloneElement(child, {getImages: this.getImages})
         )
-        console.log(newChildren)
-
         return(
             <div>
                 <Nav location={location}/>
