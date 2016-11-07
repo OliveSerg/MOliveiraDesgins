@@ -7,6 +7,10 @@ export default class GraphicIllustrations extends React.Component {
         this.state = {
             illustrations: ["No Images"],
             graphicDesigns: ["No Images"], 
+            collapsed: {
+                illustration: "collapsed",
+                design: "collapsed"
+            }
         }
     }
 
@@ -31,17 +35,32 @@ export default class GraphicIllustrations extends React.Component {
         })
     }
 
+    toggleCollapse(ev){
+       let collapsed = this.state.collapsed
+       if(ev.target.className.includes("illustration")){
+           collapsed.illustration = collapsed.illustration ? "" : "collapsed"; 
+           this.setState({
+                collapsed,
+            })        
+       } else if(ev.target.className.includes("design")){
+           collapsed.design = collapsed.design ? "" : "collapsed";
+           this.setState({
+                collapsed,
+           })  
+       }
+    }
+
     render(){
-        const {illustrations, graphicDesigns} = this.state
+        const {illustrations, graphicDesigns, collapsed} = this.state
         return(
             <div>
                 <img className="title-image" src="../images/img-2.jpg"/>
-                <h2>Digital Illustrations</h2>
-                <div className='gallery'>
+                <h2 className='gallery-title t-illustration' onClick={this.toggleCollapse.bind(this)}>Digital Illustrations</h2>
+                <div className={"gallery " + collapsed.illustration}>
                     {illustrations}
                 </div>
-                <h2>Graphic Design</h2>
-                <div className='gallery'>
+                <h2  className='gallery-title t-design' onClick={this.toggleCollapse.bind(this)}>Graphic Design</h2>
+                <div className={"gallery " + collapsed.design}>
                     {graphicDesigns}
                 </div>
             </div>        

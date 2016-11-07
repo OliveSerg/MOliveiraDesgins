@@ -12,6 +12,10 @@ img {
     height: 100vh;
 }
 
+.collapsed {
+    display: none;
+}
+
 .gallery {
     margin: 0 1em;
     column-count: 2;
