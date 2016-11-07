@@ -1,0 +1,27 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.title-image {
+    height: 100vh;
+}
+
+.gallery {
+    margin: 0 1em;
+    column-count: 2;
+    column-gap: 1em;
+}
+
+.gallery-item {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 1em;
+}
+
+
