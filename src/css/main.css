@@ -29,10 +29,16 @@ img {
 
 .about {
     background: url('../images/img-1.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
 }
 
 .graphic-illustration {
     background: url('../images/img-2.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: left 75%;
 }
 
 .modeling {

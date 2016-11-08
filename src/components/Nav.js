@@ -17,11 +17,11 @@ export default class Nav extends React.Component {
     render(){
         const {location} = this.props;
         const {collapsed} = this.state;
-        const navClass = collapsed ? "" : "hidden";
-        const backButton = navClass ? "back" : "hidden";
+        const navClass = collapsed ? "nav-box" : "hidden";
+        const backButton = navClass === "hidden" ? "back" : "hidden";
 
         return(
-            <div className="nav-box">    
+            <div>    
                 <nav role='navigation' className={navClass}>
                  <IndexLink className='about nav-item' to='/' onClick={this.toggleCollapse.bind(this)}>
                    About

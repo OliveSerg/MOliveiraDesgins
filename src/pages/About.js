@@ -6,9 +6,14 @@ export default class About extends React.Component {
     }
 
     render() {
+        const titleImgStyle = {
+            background: "url('../images/img-1.jpg') no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+        }
         return(
             <div>
-                <img className="title-image" src="../images/img-1.jpg"/>
+                <div className="title-image" style={titleImgStyle}></div>
                 <img className="self-icon" src="../images/self.png"/>
                 <h3>Micheal Oliveira</h3>
                 <p>

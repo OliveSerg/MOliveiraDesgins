@@ -1,36 +1,28 @@
 import React from 'react';
 import Promise from "promise";
+import images from "../images/images.js";
 
 export default class GraphicIllustrations extends React.Component {
     constructor(props){
         super()
         this.state = {
-            illustrations: ["No Images"],
-            graphicDesigns: ["No Images"], 
+            illustrations: images.digital,
+            graphicDesigns: images.graphic, 
+            gallery: {
+                hidden: true,
+                current: 0
+            },
             collapsed: {
                 illustration: "collapsed",
                 design: "collapsed"
             }
         }
+        
     }
 
-    componentDidMount(){
-        const {getImages} = this.props
-        const folder = ['Digital', 'Graphic']
-        const requests = [getImages(folder[0]), getImages(folder[1])]
-        Promise.all(requests).then((responses)=>{
-            this.setState({
-                illustrations: this.makeImgComp( folder[0], responses[0].data),
-                graphicDesigns: this.makeImgComp( folder[1], responses[1].data)
-            })
-        }).catch((error)=>{
-            return "No files";
-        })
-    }
-    
-    makeImgComp(folder, array){
+    makeImgComp(array){
         return array.map((image)=>{
-            var source = `../images/${folder}/${image}`
+            var source = image.source
             return <div className='gallery-item'><img src={source}/></div>
         })
     }
@@ -52,6 +44,8 @@ export default class GraphicIllustrations extends React.Component {
 
     render(){
         const {illustrations, graphicDesigns, collapsed} = this.state
+        const illustrationComponents = this.makeImgComp(illustrations)
+        const graphicComponents = this.makeImgComp(graphicDesigns)
         const titleImgStyle = {
             background: "url('../images/img-2.jpg') no-repeat",
             backgroundSize: "cover",
@@ -63,11 +57,11 @@ export default class GraphicIllustrations extends React.Component {
                 <div style={titleImgStyle}></div>
                 <h2 className='gallery-title t-illustration' onClick={this.toggleCollapse.bind(this)}>Digital Illustrations</h2>
                 <div className={"gallery " + collapsed.illustration}>
-                    {illustrations}
+                    {illustrationComponents}
                 </div>
                 <h2  className='gallery-title t-design' onClick={this.toggleCollapse.bind(this)}>Graphic Design</h2>
                 <div className={"gallery " + collapsed.design}>
-                    {graphicDesigns}
+                    {graphicComponents}
                 </div>
             </div>        
         ) 
