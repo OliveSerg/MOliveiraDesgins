@@ -8,6 +8,47 @@ img {
     height: auto;
 }
 
+.hidden {
+    display: none;
+}
+
+.nav-box {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+}
+
+.nav-item {
+    display: block;
+    width: 100%;
+    height: 25%;
+    text-decoration: none;
+    line-height: 10em;
+    text-align: center;
+}
+
+.about {
+    background: url('../images/img-1.jpg') no-repeat;
+}
+
+.graphic-illustration {
+    background: url('../images/img-2.jpg') no-repeat;
+}
+
+.modeling {
+    background: url('../images/img-4.jpg') no-repeat;
+}
+
+.contact {
+    background: url('../images/img-3.jpg') no-repeat;
+}
+
+.back {
+    position: absolute;
+    top: 5vh;
+    right: 7vh;
+}
+
 .title-image {
     height: 100vh;
 }

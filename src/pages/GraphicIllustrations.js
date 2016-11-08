@@ -52,9 +52,15 @@ export default class GraphicIllustrations extends React.Component {
 
     render(){
         const {illustrations, graphicDesigns, collapsed} = this.state
+        const titleImgStyle = {
+            background: "url('../images/img-2.jpg') no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "left 75%",
+            height: "100vh"
+        }
         return(
             <div>
-                <img className="title-image" src="../images/img-2.jpg"/>
+                <div style={titleImgStyle}></div>
                 <h2 className='gallery-title t-illustration' onClick={this.toggleCollapse.bind(this)}>Digital Illustrations</h2>
                 <div className={"gallery " + collapsed.illustration}>
                     {illustrations}
