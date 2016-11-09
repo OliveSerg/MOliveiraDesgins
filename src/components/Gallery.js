@@ -47,9 +47,9 @@ export default class Gallery extends React.Component {
         const {currentSlide} = this.state
         return(
             <div  className='slider-box'>
-                <input type='button' className='arrow' onClick={this.prevSlide.bind(this)}/>
+                <input type='button' className='arrow previous' onClick={this.prevSlide.bind(this)}/>
                 {currentSlide}
-                <input type='button' className='arrow' onClick={this.nextSlide.bind(this)}/>
+                <input type='button' className='arrow next' onClick={this.nextSlide.bind(this)}/>
             </div>        
         )
     }

@@ -51,7 +51,8 @@ img {
 }
 
 .back {
-    position: absolute;
+    position: fixed;
+    z-index: 10;
     top: 5vh;
     right: 7vh;
 }
@@ -78,15 +79,48 @@ img {
 }
 
 .slider-box {
-    background-color: rgba(0,0,0,0.75)
+    background-color: rgba(0,0,0,0.75);
+    text-align: -webkit-center;
 }
 
 .slider-box * {
-    display: inherit;
+    display: block;
     max-height: 100%;
 }
 
 .slider-box .gallery-item {
     max-width: 80%;
     height: 80%;
+    top: 10%;
+}
+
+.caption {
+    color: white;
+}
+
+.arrow {
+    height: 100%;
+    width: 10%;
+    position: absolute;
+}
+
+.previous {
+    left: 0;
+}
+
+.next {
+    right: 0;
+    top: 0;
+}
+
+@media (min-width: 800px){
+    .gallery {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 1000px){
+    .gallery {
+        column-count: 4;
+    }
 }
