@@ -13,7 +13,7 @@ ReactDOM.render((
         <Route path="/" component={Layout}>
             <IndexRoute component={About}></IndexRoute>
             <Route path='graphic-illustrations' component={GraphicIllustrations}></Route>
-            <Route path='3d-modeling' component={Modeling}></Route>
+            <Route path='3d-modeling(/:id)' component={Modeling}></Route>
             <Route path='contact' component={Contact}></Route>
         </Route>
     </Router>    

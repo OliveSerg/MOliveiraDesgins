@@ -74,7 +74,7 @@ export default class GraphicIllustrations extends React.Component {
         return(
             <div>
                 {galleryComponent}
-                <div style={titleImgStyle}></div>
+                <div style={titleImgStyle}><input type='button' className='page-down'/></div>
                 <h2 className='gallery-title t-illustration' onClick={this.toggleCollapse.bind(this)}>Digital Illustrations</h2>
                 <div className={"gallery " + collapsed.illustration}>
                     {illustrationComponents}

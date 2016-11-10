@@ -112,4 +112,46 @@ graphic: [
         source: '../images/Graphic/gl12.jpg',
         caption: 'hi'
     }, 
+],
+modeling: [
+    {
+        source: '../images/3D/th1.jpg',
+        caption: "Hey"
+    }, {
+        source: '../images/3D/th2.jpg',
+        caption: "Hey"
+    },   {
+        source: '../images/3D/th2.jpg',
+        caption: "Hey"
+    },   {
+        source: '../images/3D/th3.jpg',
+        caption: "Hey"
+    },   {
+        source: '../images/3D/th4.jpg',
+        caption: "Hey"
+    },   {
+        source: '../images/3D/th5.jpg',
+        caption: "Hey"
+    },   {
+        source: '../images/3D/th6.jpg',
+        caption: "Hey"
+    },   {
+        source: '../images/3D/th7.jpg',
+        caption: "Hey"
+    },   {
+        source: '../images/3D/th8.jpg',
+        caption: "Hey"
+    },   {
+        source: '../images/3D/th9.jpg',
+        caption: "Hey"
+    },   {
+        source: '../images/3D/th10.jpg',
+        caption: "Hey"
+    },   {
+        source: '../images/3D/th11.jpg',
+        caption: "Hey"
+    },   {
+        source: '../images/3D/th12.jpg',
+        caption: "Hey"
+    },   
 ]}

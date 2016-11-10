@@ -13,7 +13,7 @@ export default class About extends React.Component {
         }
         return(
             <div>
-                <div className="title-image" style={titleImgStyle}></div>
+                <div className="title-image" style={titleImgStyle}><input type='button' className='page-down'/></div>
                 <img className="self-icon" src="../images/self.png"/>
                 <h3>Micheal Oliveira</h3>
                 <p>
