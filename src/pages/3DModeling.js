@@ -1,6 +1,8 @@
 import React from 'react';
 import images from "../images/images.js";
 import THREE from "three";
+import OBJLoader from "three-obj-loader";
+OBJLoader(THREE);
 import React3 from "react-three-renderer";
 
 export default class Modeling extends React.Component {
@@ -8,20 +10,29 @@ export default class Modeling extends React.Component {
         super()
         const id = props.params.id ? props.params.id : null;
         this.cameraPosition = new THREE.Vector3(0,0,5)
+        this.manager = new THREE.LoadingManager()
+        this.manager.onProgress = function(item, loaded, total){
+            console.log(item, loaded, total)
+        }
+        this.manager.onError = function(error){
+            console.log(error)
+        }
+        this.loader = new THREE.OBJLoader(this.manager)
         this.state = {
             images: images.modeling,
             id,
-            cubeRotation: new THREE.Euler()
         }
-        this._onAnimate = () => {
-            this.setState({
-              cubeRotation: new THREE.Euler(
-                    this.state.cubeRotation.x + 0.1,
-                    this.state.cubeRotation.y + 0.1,
-                    0
-              ),
-            });
-        };
+    }
+
+    componentDidMount(){
+        this.loader.load('../images/LemmyKart.obj', (object)=>{
+            console.log(object)
+            for(let child of object.children){
+                child.material.side = THREE.DoubleSide
+            }
+            object.position.z = -100
+            this.refs.object.add(object)
+        })
     }
 
     makeImgComp(array, folder){
@@ -34,41 +45,17 @@ export default class Modeling extends React.Component {
     render(){
         const {images, id} = this.state
         const imageComponents = this.makeImgComp(images, "s")
-        const width = window.innerWidth; // canvas width
-        const height = window.innerHeight; // canvas height
+        const width = window.innerWidth;
+        const height = window.innerHeight;
 
-        return (<React3
-                mainCamera="camera" // this points to the perspectiveCamera which has the name set to "camera" below
-                width={width}
-                height={height}
-
-                onAnimate={this._onAnimate}
-                >
+        return (
+            <React3 clearColor={0xffffff} mainCamera="camera" width={width} height={height}>
                 <scene>
-                <perspectiveCamera
-                name="camera"
-                fov={75}
-                aspect={width / height}
-                near={0.1}
-                far={1000}
-
-                position={this.cameraPosition}
-                />
-                <mesh
-                rotation={this.state.cubeRotation}
-                >
-                <boxGeometry
-                width={1}
-                height={1}
-                depth={1}
-                />
-                    <meshBasicMaterial
-                    color={0x00ff00}
-                />
-                    </mesh>
-                    </scene>
-                    </React3>
-          );
+                    <perspectiveCamera name='camera' fov={75} aspect={width /height} near={0.1} far={1000} position={this.cameraPosition}/>
+                    <object3D ref='object' />
+                </scene>
+            </React3>
+        );
                 
     }
 }
