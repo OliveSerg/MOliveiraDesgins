@@ -113,7 +113,8 @@ graphic: [
         caption: 'hi'
     }, 
 ],
-modeling: [
+modeling:{
+    images: [
     {
         source: '../images/3D/th1.jpg',
         caption: "Hey"
@@ -154,4 +155,12 @@ modeling: [
         source: '../images/3D/th12.jpg',
         caption: "Hey"
     },   
-]}
+    ],
+    models: [
+        {
+            name: 'LemmyKart',
+            source: 'https://p3d.in/e/QOejF',
+            caption: "Lemmy!!!"
+        },
+    ]}
+}
