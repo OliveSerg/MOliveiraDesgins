@@ -36,10 +36,7 @@
     "react-addons-pure-render-mixin": "^15.0.2",
     "react-dom": "^15.3.2",
     "react-router": "^2.4.0",
-    "react-three": "^0.9.4",
-    "react-three-renderer": "^2.3.3",
-    "restify": "^4.0.4",
-    "three": "^0.79.0"
+    "restify": "^4.0.4"
   },
   "devDependencies": {
     "babel-core": "^6.8.0",
