@@ -8,6 +8,7 @@ import React3 from "react-three-renderer";
 export default class Modeling extends React.Component {
     constructor(props){
         super()
+        console.log(THREE)
         const id = props.params.id ? props.params.id : null;
         this.cameraPosition = new THREE.Vector3(0,0,5)
         this.manager = new THREE.LoadingManager()
