@@ -1,7 +1,5 @@
 import React from 'react';
 import images from "../images/images.js";
-import THREE from "three";
-import React3 from "react-three-renderer";
 
 export default class Modeling extends React.Component {
     constructor(props){
@@ -20,7 +18,11 @@ export default class Modeling extends React.Component {
         const {images, id} = this.state
         const imageComponents = this.makeImgComp(images, "s")
 
-        return ( );
+        return ( 
+            <div>
+                3D-Models
+            </div>        
+        );
                 
     }
 }
