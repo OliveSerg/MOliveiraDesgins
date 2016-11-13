@@ -3,12 +3,12 @@ import images from "../images/images.js";
 import THREE from "three";
 import OBJLoader from "three-obj-loader";
 OBJLoader(THREE);
+import MTLLoader from "three-obj-loader";
 import React3 from "react-three-renderer";
 
 export default class Modeling extends React.Component {
     constructor(props){
         super()
-        console.log(THREE)
         const id = props.params.id ? props.params.id : null;
         this.cameraPosition = new THREE.Vector3(0,0,5)
         this.manager = new THREE.LoadingManager()
@@ -18,6 +18,8 @@ export default class Modeling extends React.Component {
         this.manager.onError = function(error){
             console.log(error)
         }
+        this.texture = new THREE.Texture()
+        this.imgLoader = new THREE.ImageLoader(this.manager)
         this.loader = new THREE.OBJLoader(this.manager)
         this.state = {
             images: images.modeling,
@@ -26,13 +28,23 @@ export default class Modeling extends React.Component {
     }
 
     componentDidMount(){
-        this.loader.load('../images/LemmyKart.obj', (object)=>{
-            console.log(object)
-            for(let child of object.children){
-                child.material.side = THREE.DoubleSide
-            }
-            object.position.z = -100
-            this.refs.object.add(object)
+        this.imgLoader.load('../images/Kart_Texture.png', (image)=> {
+            console.log(image)
+            this.texture.image = image
+            this.texture.needsUpdate = true
+            console.log(this.texture) 
+            this.loader.load('../images/LemmyKart.obj', (object)=>{
+                object.traverse((child)=>{
+                    if(child instanceof THREE.Mesh){
+                        child.material.color = new THREE.Color(0.2,0.2,0.2)
+                        child.material.map = this.texture
+                        console.log(child)
+                    }
+                })
+                object.position.z = -100
+                this.refs.object.add(object)
+                console.log(object)
+            })
         })
     }
 
@@ -43,6 +55,11 @@ export default class Modeling extends React.Component {
         })
     }
 
+    movePerspective(ev){
+        console.log(ev)
+        console.log(ev.clientX)
+    }
+
     render(){
         const {images, id} = this.state
         const imageComponents = this.makeImgComp(images, "s")
@@ -51,8 +68,9 @@ export default class Modeling extends React.Component {
 
         return (
             <React3 clearColor={0xffffff} mainCamera="camera" width={width} height={height}>
-                <scene>
+                <scene >
                     <perspectiveCamera name='camera' fov={75} aspect={width /height} near={0.1} far={1000} position={this.cameraPosition}/>
+                    <ambientLight color={0x404040} intensity={25}/>
                     <object3D ref='object' />
                 </scene>
             </React3>
