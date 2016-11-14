@@ -18,7 +18,7 @@ export default class Nav extends React.Component {
     render(){
         const {location} = this.props;
         const {collapsed} = this.state;
-        const navClass = collapsed ? "nav-box" : "hidden";
+        const navClass = collapsed ? "hidden" : "nav-box";
         const backButton = navClass === "hidden" ? "back" : "hidden";
 
         return(
