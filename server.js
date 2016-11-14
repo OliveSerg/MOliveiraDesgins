@@ -32,7 +32,9 @@ app.get('/images', function(req, res){
 })
 
 app.post('/mail', function(req, res){
-    console.log(emailInfo)
+    const smtpConfig = {
+        host: 'smtp.sendgrid.net'
+    }
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
