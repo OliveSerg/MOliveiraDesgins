@@ -12,7 +12,11 @@ export default class Nav extends React.Component {
 
     toggleCollapse(ev){
         var active = true
-        if(ev.target.id === "back"){
+        const checkClass = [
+            ev.target.className.includes("back"),
+            ev.target.className.includes("line")
+       ]
+        if(checkClass[0] || checkClass[1]){
             active = false
         }
         window.scrollTo(0,0)
@@ -26,6 +30,10 @@ export default class Nav extends React.Component {
         const navClass = collapsed ? "slide-out" : "slide-in";
         const backButton = navClass === "slide-out" ? "back" : "hide";
         const activeStyle = active ? {opacity: 0} : {};
+        let lineComps = [];
+        for (var i = 0; i < 3; i++) {
+            lineComps.push(<div className="line" onClick={this.toggleCollapse.bind(this)} key={i}></div>)
+        }
         return(
             <div>    
                 <nav role='navigation' className={"nav-box "+navClass}>
@@ -42,7 +50,9 @@ export default class Nav extends React.Component {
                    Contact
                  </Link>
                 </nav>
-                <input id="back" className={backButton} type='button' onClick={this.toggleCollapse.bind(this)}/>
+                <button className={backButton} type='button' onClick={this.toggleCollapse.bind(this)}>
+                    {lineComps}
+                </button>
             </div>        
         )
     }

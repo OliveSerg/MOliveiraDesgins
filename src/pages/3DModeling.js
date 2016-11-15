@@ -87,6 +87,5 @@ export default class Modeling extends React.Component {
                     <Footer backgroundStyle={footerStyle}/>
                 </div>
             );
-                
     }
 }
