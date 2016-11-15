@@ -1,12 +1,9 @@
 import React from 'react';
 import $ from "jquery";
 import images from "../images/images.js";
-<<<<<<< HEAD
-=======
 import Gallery from "../components/Gallery.js"
 import GalleryContainer from "../components/GalleryContainer.js"
 import Footer from "../components/Footer.js"
->>>>>>> ae777f02df8a2989b39ecc3622d25849bc76e792
 
 export default class Modeling extends React.Component {
     constructor(props){
@@ -42,13 +39,6 @@ export default class Modeling extends React.Component {
         }
     }
 
-<<<<<<< HEAD
-        return ( 
-            <div>
-                3D-Models
-            </div>        
-        );
-=======
     render(){
         const {images, id, current} = this.state
         const modelComps = images.models.map((img, index)=>{
@@ -97,7 +87,5 @@ export default class Modeling extends React.Component {
                     <Footer backgroundStyle={footerStyle}/>
                 </div>
             );
->>>>>>> ae777f02df8a2989b39ecc3622d25849bc76e792
-                
     }
 }
