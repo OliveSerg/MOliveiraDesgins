@@ -1,7 +1,9 @@
 import React from 'react';
-import Promise from "promise";
+import $ from 'jquery';
 import images from "../images/images.js";
 import Gallery from "../components/Gallery.js"
+import GalleryContainer from "../components/GalleryContainer.js"
+import Footer from "../components/Footer.js"
 
 export default class GraphicIllustrations extends React.Component {
     constructor(props){
@@ -12,19 +14,21 @@ export default class GraphicIllustrations extends React.Component {
             gallery: {
                 show: false,
                 current: "0"
-            },
-            collapsed: {
-                illustration: "collapsed",
-                design: "collapsed"
             }
         }
         
     }
 
+    pageDown(){
+        $('html, body').animate({
+            scrollTop: window.innerHeight + 100
+        })
+    }
+
     makeImgComp(array, folder){
         return array.map((image, index)=>{
             var source = image.source
-            return <div onClick={this.toggleGallery.bind(this)} className='gallery-item'><img id={folder + index} src={source}/><p className='caption hidden'>{image.caption}</p></div>
+            return <div onClick={this.toggleGallery.bind(this)} className='gallery-item'><img id={folder + index} src={source}/><p className='caption hide'>{image.caption}</p></div>
         })
     }
 
@@ -38,21 +42,6 @@ export default class GraphicIllustrations extends React.Component {
         this.setState({
             gallery,
         })
-    }
-
-    toggleCollapse(ev){
-       let collapsed = this.state.collapsed
-       if(ev.target.className.includes("illustration")){
-           collapsed.illustration = collapsed.illustration ? "" : "collapsed"; 
-           this.setState({
-                collapsed,
-            })        
-       } else if(ev.target.className.includes("design")){
-           collapsed.design = collapsed.design ? "" : "collapsed";
-           this.setState({
-                collapsed,
-           })  
-       }
     }
 
     render(){
@@ -71,18 +60,26 @@ export default class GraphicIllustrations extends React.Component {
             backgroundPosition: "left 75%",
             height: "100vh"
         }
+        const footerStyle = {
+            color: "#fff",
+            backgroundColor: "#717171",
+            textAlign: "center",
+            opacity: 0.9
+        }
+
         return(
             <div>
                 {galleryComponent}
-                <div style={titleImgStyle}><input type='button' className='page-down'/></div>
-                <h2 className='gallery-title t-illustration' onClick={this.toggleCollapse.bind(this)}>Digital Illustrations</h2>
-                <div className={"gallery " + collapsed.illustration}>
+                <div className="title-image" style={titleImgStyle}>
+                        <input onClick={this.pageDown.bind(this)} type='button' className='page-down'/>
+                </div>
+                <GalleryContainer backgroundStyle={footerStyle} title="Digital Illustration">
                     {illustrationComponents}
-                </div>
-                <h2  className='gallery-title t-design' onClick={this.toggleCollapse.bind(this)}>Graphic Design</h2>
-                <div className={"gallery " + collapsed.design}>
+                </GalleryContainer>
+                <GalleryContainer backgroundStyle={footerStyle} title="Graphic Design">
                     {graphicComponents}
-                </div>
+                </GalleryContainer>
+                <Footer backgroundStyle={footerStyle}/>
             </div>        
         ) 
     }
