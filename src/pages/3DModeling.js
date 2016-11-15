@@ -16,7 +16,7 @@ export default class Modeling extends React.Component {
 
     pageDown(){
         $('html, body').animate({
-            scrollTop: window.innerHeight
+            scrollTop: window.innerHeight + 100
         })
     }
 
@@ -66,6 +66,7 @@ export default class Modeling extends React.Component {
         const footerStyle = {
             color: "#fff",
             backgroundColor: "#B1544B",
+            textAlign: "center",
             opacity: 0.9
         }
         return (
@@ -74,13 +75,13 @@ export default class Modeling extends React.Component {
                     <div className="title-image" style={titleImgStyle}>
                         <input onClick={this.pageDown.bind(this)} type='button' className='page-down'/>
                     </div>
-                    <GalleryContainer title="Still 3D Images">
+                    <GalleryContainer backgroundStyle={footerStyle} title="Still 3D Images">
                         {imgComps}
                     </GalleryContainer>
                     <div className="model-box">
                         {modelComp} 
                     </div>
-                    <GalleryContainer title="3D Models">
+                    <GalleryContainer backgroundStyle={footerStyle} title="3D Models">
                         {modelComps}
                     </GalleryContainer>
                     <Footer backgroundStyle={footerStyle}/>

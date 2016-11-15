@@ -9,7 +9,7 @@ export default class About extends React.Component {
 
     pageDown(){
         $('html, body').animate({
-            scrollTop: window.innerHeight
+            scrollTop: window.innerHeight + 100
         })
     }
 

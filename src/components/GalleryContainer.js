@@ -12,7 +12,7 @@ export default class GalleryContainer extends React.Component {
         }
         return(
             <div style={{maxWidth: "1170px", margin: "auto"}}>
-                <h2 className='gallery-title'>{this.props.title}</h2>
+                <h2 style={this.props.backgroundStyle} className='gallery-title'>{this.props.title}</h2>
                 <div style={galleryOverflow}>
                     <div className="gallery">
                         {this.props.children}

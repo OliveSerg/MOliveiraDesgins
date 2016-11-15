@@ -122,9 +122,6 @@ modeling:{
         source: '../images/3D/th2.jpg',
         caption: "Hey"
     },   {
-        source: '../images/3D/th2.jpg',
-        caption: "Hey"
-    },   {
         source: '../images/3D/th3.jpg',
         caption: "Hey"
     },   {

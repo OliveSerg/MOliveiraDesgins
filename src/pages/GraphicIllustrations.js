@@ -21,7 +21,7 @@ export default class GraphicIllustrations extends React.Component {
 
     pageDown(){
         $('html, body').animate({
-            scrollTop: window.innerHeight
+            scrollTop: window.innerHeight + 100
         })
     }
 
@@ -63,6 +63,7 @@ export default class GraphicIllustrations extends React.Component {
         const footerStyle = {
             color: "#fff",
             backgroundColor: "#717171",
+            textAlign: "center",
             opacity: 0.9
         }
 
@@ -72,10 +73,10 @@ export default class GraphicIllustrations extends React.Component {
                 <div className="title-image" style={titleImgStyle}>
                         <input onClick={this.pageDown.bind(this)} type='button' className='page-down'/>
                 </div>
-                <GalleryContainer title="Digital Illustration">
+                <GalleryContainer backgroundStyle={footerStyle} title="Digital Illustration">
                     {illustrationComponents}
                 </GalleryContainer>
-                <GalleryContainer title="Graphic Design">
+                <GalleryContainer backgroundStyle={footerStyle} title="Graphic Design">
                     {graphicComponents}
                 </GalleryContainer>
                 <Footer backgroundStyle={footerStyle}/>
