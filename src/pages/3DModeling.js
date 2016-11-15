@@ -1,6 +1,8 @@
 import React from 'react';
+import $ from "jquery";
 import images from "../images/images.js";
 import Gallery from "../components/Gallery.js"
+import Footer from "../components/Footer.js"
 
 export default class Modeling extends React.Component {
     constructor(props){
@@ -11,15 +13,29 @@ export default class Modeling extends React.Component {
         }
     }
 
+    pageDown(){
+        $('html, body').animate({
+            scrollTop: window.innerHeight
+        })
+    }
+
     makeImgComp(source, caption, id){
         return <div className='gallery-item'><img onClick={this.toggleGallery.bind(this)} id={id} src={source}/><p className='caption hidden'>{caption}</p></div>
     }
 
     toggleGallery(ev){
-        const current = this.state.current ? "" : ev.target.id;
+        var current = ev.target.id
+        if(this.state.current === ev.target.id){
+           current = "" 
+        }
         this.setState({
             current,
         })
+        if(current.includes("m")){
+            $('html, body').animate({
+                scrollTop: $(".model-box").offset().top
+            })
+        }
     }
 
     render(){
@@ -34,29 +50,41 @@ export default class Modeling extends React.Component {
         let galleryComp = ""
         if(current && current.match(/^m/)){
             const model = current.match(/\d+/)[0]
-            modelComp = <div className="model-box"><iframe allowfullscreen webkitallowfullscreen width="640" height="480" frameborder="0" seamless src={images.models[model].source}></iframe></div>
+            modelComp = <iframe allowfullscreen webkitallowfullscreen width="640" height="480" frameborder="0" seamless src={images.models[model].source}></iframe>
         } else if(current && current.match(/^i/)){
             const model = current.match(/\d+/)[0]
             galleryComp = <Gallery current={model}>{imgComps}</Gallery> 
+        } else {
+            modelComp = <h1>Please Choose a Model</h1>
         }
         const titleImgStyle = {
             background: "url('../images/img-4.jpg') no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center"
         }
+        const footerStyle = {
+            color: "#fff",
+            backgroundColor: "#B1544B",
+            opacity: 0.9
+        }
         return (
                 <div>
                     {galleryComp}
-                    <div className="title-image" style={titleImgStyle}><input type='button' className='page-down'/></div>
+                    <div className="title-image" style={titleImgStyle}>
+                        <input onClick={this.pageDown.bind(this)} type='button' className='page-down'/>
+                    </div>
                     <div className="gallery">
                         {imgComps}
                     </div>
-                    {modelComp} 
+                    <div className="model-box">
+                        {modelComp} 
+                    </div>
                     <div className="gallery">
                         {modelComps}
                     </div>
+                    <Footer backgroundStyle={footerStyle}/>
                 </div>
-    );
+            );
                 
     }
 }

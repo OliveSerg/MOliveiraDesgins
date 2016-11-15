@@ -1,7 +1,8 @@
 import React from 'react';
-import Promise from "promise";
+import $ from 'jquery';
 import images from "../images/images.js";
 import Gallery from "../components/Gallery.js"
+import Footer from "../components/Footer.js"
 
 export default class GraphicIllustrations extends React.Component {
     constructor(props){
@@ -19,6 +20,12 @@ export default class GraphicIllustrations extends React.Component {
             }
         }
         
+    }
+
+    pageDown(){
+        $('html, body').animate({
+            scrollTop: window.innerHeight
+        })
     }
 
     makeImgComp(array, folder){
@@ -71,10 +78,17 @@ export default class GraphicIllustrations extends React.Component {
             backgroundPosition: "left 75%",
             height: "100vh"
         }
+        const footerStyle = {
+            color: "#fff",
+            backgroundColor: "#717171",
+            opacity: 0.9
+        }
         return(
             <div>
                 {galleryComponent}
-                <div style={titleImgStyle}><input type='button' className='page-down'/></div>
+                <div className="title-image" style={titleImgStyle}>
+                        <input onClick={this.pageDown.bind(this)} type='button' className='page-down'/>
+                    </div>
                 <h2 className='gallery-title t-illustration' onClick={this.toggleCollapse.bind(this)}>Digital Illustrations</h2>
                 <div className={"gallery " + collapsed.illustration}>
                     {illustrationComponents}
@@ -83,6 +97,7 @@ export default class GraphicIllustrations extends React.Component {
                 <div className={"gallery " + collapsed.design}>
                     {graphicComponents}
                 </div>
+                <Footer backgroundStyle={footerStyle}/>
             </div>        
         ) 
     }
