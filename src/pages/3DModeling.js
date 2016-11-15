@@ -2,6 +2,7 @@ import React from 'react';
 import $ from "jquery";
 import images from "../images/images.js";
 import Gallery from "../components/Gallery.js"
+import GalleryContainer from "../components/GalleryContainer.js"
 import Footer from "../components/Footer.js"
 
 export default class Modeling extends React.Component {
@@ -20,7 +21,7 @@ export default class Modeling extends React.Component {
     }
 
     makeImgComp(source, caption, id){
-        return <div className='gallery-item'><img onClick={this.toggleGallery.bind(this)} id={id} src={source}/><p className='caption hidden'>{caption}</p></div>
+        return <div className='gallery-item'><img onClick={this.toggleGallery.bind(this)} id={id} src={source}/><p className='caption hide'>{caption}</p></div>
     }
 
     toggleGallery(ev){
@@ -73,15 +74,15 @@ export default class Modeling extends React.Component {
                     <div className="title-image" style={titleImgStyle}>
                         <input onClick={this.pageDown.bind(this)} type='button' className='page-down'/>
                     </div>
-                    <div className="gallery">
+                    <GalleryContainer title="Still 3D Images">
                         {imgComps}
-                    </div>
+                    </GalleryContainer>
                     <div className="model-box">
                         {modelComp} 
                     </div>
-                    <div className="gallery">
+                    <GalleryContainer title="3D Models">
                         {modelComps}
-                    </div>
+                    </GalleryContainer>
                     <Footer backgroundStyle={footerStyle}/>
                 </div>
             );
