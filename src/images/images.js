@@ -1,156 +1,156 @@
 export default {digital: [
     {
         source: '../images/Digital/gl1.jpg',
-        caption: 'Hello'
+        caption: 'Hayley Wiliams'
     },   {
         source: '../images/Digital/gl2.jpg',
-        caption: 'Hello'
+        caption: 'Liquid Feather'
     },   {
         source: '../images/Digital/gl3.jpg',
-        caption: 'Hello'
+        caption: 'Agnes Oblige'
     },   {
         source: '../images/Digital/gl4.jpg',
-        caption: 'Hello'
+        caption: 'Realistic Painting'
     },   {
         source: '../images/Digital/gl5.jpg',
-        caption: 'Hello'
+        caption: 'Traditional Painting'
     },   {
         source: '../images/Digital/gl6.jpg',
-        caption: 'Hello'
+        caption: 'Eye of the Beholder'
     },   {
         source: '../images/Digital/gl7.jpg',
-        caption: 'Hello'
+        caption: 'Peaceful Space'
     },   {
         source: '../images/Digital/gl8.jpg',
-        caption: 'Hello'
+        caption: 'Vector Skittles Package'
     },   {
         source: '../images/Digital/gl9.jpg',
-        caption: 'Hello'
+        caption: 'Demon Bane'
     },   {
         source: '../images/Digital/gl10.jpg',
-        caption: 'Hello'
+        caption: 'Mysterious Meadows'
     },   {
         source: '../images/Digital/gl11.jpg',
-        caption: 'Hello'
+        caption: 'Mindless Spiral'
     },   {
         source: '../images/Digital/gl12.jpg',
-        caption: 'Hello'
+        caption: 'Quiet as a Mouse'
     },   {
         source: '../images/Digital/gl13.jpg',
-        caption: 'Hello'
+        caption: 'Traditional Ink Vienna'
     },   {
         source: '../images/Digital/gl14.jpg',
-        caption: 'Hello'
+        caption: 'Angel Beats Shiina'
     },   {
         source: '../images/Digital/gl15.jpg',
-        caption: 'Hello'
+        caption: 'Thoughts of Freedom'
     },   {
         source: '../images/Digital/gl16.jpg',
-        caption: 'Hello'
+        caption: 'Walk the Dog'
     },   {
         source: '../images/Digital/gl17.jpg',
-        caption: 'Hello'
+        caption: 'The Gem'
     },   {
         source: '../images/Digital/gl18.jpg',
-        caption: 'Hello'
+        caption: 'Forest'
     },   {
         source: '../images/Digital/gl19.jpg',
-        caption: 'Hello'
+        caption: 'Fire Fly Swamp'
     },   {
         source: '../images/Digital/gl20.jpg',
-        caption: 'Hello'
+        caption: 'Afraid but not Alone'
     },   {
         source: '../images/Digital/gl21.jpg',
-        caption: 'Hello'
+        caption: 'In Formation'
     },   {
         source: '../images/Digital/gl22.jpg',
-        caption: 'Hello'
+        caption: 'The Cube'
     },   {
         source: '../images/Digital/gl23.jpg',
-        caption: 'Hello'
+        caption: 'At Peace'
     },   {
         source: '../images/Digital/gl24.jpg',
-        caption: 'Hello'
+        caption: 'Old Days'
     },
 ],
 
 graphic: [
     {
         source: '../images/Graphic/gl1.jpg',
-        caption: 'hi'
+        caption: 'DIYS Pamphlet'
     },   {
         source: '../images/Graphic/gl2.jpg',
-        caption: 'hi'
+        caption: 'Lindsey Stirling DPS'
     },   {
         source: '../images/Graphic/gl3.jpg',
-        caption: 'hi'
+        caption: 'Business Card Mockup'
     },   {
         source: '../images/Graphic/gl4.jpg',
-        caption: 'hi'
+        caption: 'Lindsey Stirling DPS'
     },   {
         source: '../images/Graphic/gl5.jpg',
-        caption: 'hi'
+        caption: 'RooftopEstate Logo'
     },   {
         source: '../images/Graphic/gl6.jpg',
-        caption: 'hi'
+        caption: 'RooftopEstate Booklet'
     },   {
         source: '../images/Graphic/gl7.jpg',
-        caption: 'hi'
+        caption: 'Forest City Gallery Logo'
     },   {
         source: '../images/Graphic/gl8.jpg',
-        caption: 'hi'
+        caption: 'POP Bottle Mockup'
     },   {
         source: '../images/Graphic/gl9.jpg',
-        caption: 'hi'
+        caption: 'SmartCar Bus Stop Ad'
     },   {
         source: '../images/Graphic/gl10.jpg',
-        caption: 'hi'
+        caption: 'SmartCar Bus stop Ad Mockup'
     },   {
         source: '../images/Graphic/gl11.jpg',
-        caption: 'hi'
+        caption: 'Vector Clock'
     },  {
         source: '../images/Graphic/gl12.jpg',
-        caption: 'hi'
+        caption: 'Racing Horizontal Promo'
     }, 
 ],
 modeling:{
     images: [
     {
         source: '../images/3D/th1.jpg',
-        caption: "Hey"
+        caption: "Little Red"
     }, {
         source: '../images/3D/th2.jpg',
-        caption: "Hey"
+        caption: "Inspiration"
     },   {
         source: '../images/3D/th3.jpg',
-        caption: "Hey"
+        caption: "Variants"
     },   {
         source: '../images/3D/th4.jpg',
-        caption: "Hey"
+        caption: "3D Mockup"
     },   {
         source: '../images/3D/th5.jpg',
-        caption: "Hey"
+        caption: ""
     },   {
         source: '../images/3D/th6.jpg',
-        caption: "Hey"
+        caption: ""
     },   {
         source: '../images/3D/th7.jpg',
-        caption: "Hey"
+        caption: ""
     },   {
         source: '../images/3D/th8.jpg',
-        caption: "Hey"
+        caption: ""
     },   {
         source: '../images/3D/th9.jpg',
-        caption: "Hey"
+        caption: ""
     },   {
         source: '../images/3D/th10.jpg',
-        caption: "Hey"
+        caption: ""
     },   {
         source: '../images/3D/th11.jpg',
-        caption: "Hey"
+        caption: ""
     },   {
         source: '../images/3D/th12.jpg',
-        caption: "Hey"
+        caption: ""
     },   
     ],
     models: [
