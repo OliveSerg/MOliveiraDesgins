@@ -6,9 +6,10 @@ export default class Contact extends React.Component {
     constructor(){
         super()
         this.state = {
-            email: true,
-            name: true,
-            message: true
+            email: "",
+            name: "",
+            message: "",
+            sent: false
         }
     }
 
@@ -17,8 +18,9 @@ export default class Contact extends React.Component {
         const {contact_form, contact_email, contact_name, contact_message} = this.refs
         const email = this.validEmail()
         const name = this.validName()
+        const message = this.validMessage()
         const action = "http://www.focuspocus.io/magic/moliveira.designs@gmail.com"
-        if(email && name){
+        if(email && name && message){
             $.ajax({
                 url: action,
                 type: "POST",
@@ -28,7 +30,9 @@ export default class Contact extends React.Component {
                     message: contact_message.value
                 }
             }).always((response)=>{
-                console.log(response)
+                this.setState({
+                    sent: true
+                })
             })
         }
     }
@@ -36,49 +40,53 @@ export default class Contact extends React.Component {
     validEmail(){
         const reg = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})/i
         if(reg.test(this.refs.contact_email.value)){
+            this.setState({
+                email: ""
+            })
             return true
-            this.setState({
-                email: true
-            })
         } else {
-            return false
             this.setState({
-                email: false
+                email: "error"
             })
+            return false
         }
     }
 
     validName(){
-        const reg = /^[a-zA-Z0-9\s]$/
+        const reg = /^[a-zA-Z0-9\s]+$/
         if(reg.test(this.refs.contact_name.value)){
+            this.setState({
+                name: ""
+            })
             return true
-            this.setState({
-                name: true
-            })
         } else {
-            return false
             this.setState({
-                name: false
+                name: "error"
             })
+            return false
         }
     }
 
-    vaildMessage(){
+    validMessage(){
         if(this.refs.contact_message.value){
+            this.setState({
+                message: ""
+            })
             return true
-            this.setState({
-                message: true
-            })
         } else {
-            return false
             this.setState({
-                message: false
+                message: "error"
             })
+            return false
         }
     }
 
     render() {
-        const {email, name, message} = this.state
+        const {email, name, message, sent} = this.state
+        let sentComp = ""
+        if(sent){
+            sentComp = <p className="sent">Thank you for contact me.<br/> I will get back to you as soon as I can.</p>
+        }
         const footerStyle = {
             color: "#fff",
             backgroundColor: "#373433",
@@ -90,12 +98,13 @@ export default class Contact extends React.Component {
         return(
               <div className="contact">
                 <div className="contact-box">
+                    {sentComp}
                     <div className="form-box">
                     <form ref='contact_form' className='form' onSubmit={this.mail.bind(this)} >
                         <h2>Contact Me</h2>
-                        <input type="text" name="name" ref="contact_name" placeholder="Name"/>
-                        <input type="email" name="email" ref="contact_email" placeholder="Email"/>
-                        <textarea type="textarea" name="message" ref="contact_message" placeholder="Message..."></textarea>
+                        <input className={name} type="text" onBlur={this.validName.bind(this)} name="name" ref="contact_name" placeholder="Name"/>
+                        <input className={email} type="email" onBlur={this.validEmail.bind(this)} name="email" ref="contact_email" placeholder="Email"/>
+                        <textarea className={message} type="textarea" onBlur={this.validMessage.bind(this)} name="message" ref="contact_message" placeholder="Message..."></textarea>
                         <button className="button" name="submit" type="submit">Send Message</button>
                     </form>
                     </div>

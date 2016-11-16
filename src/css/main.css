@@ -246,6 +246,7 @@ img {
 
 .contact-box {
     width: 100%;
+    max-width: 600px;
     height: 100%;
     margin: auto;
     position: relative;
@@ -269,12 +270,25 @@ img {
     width: 70%;
     min-height: 9%;
     margin: 1em auto;
-    color: white;
     font-family: 'Fauna One', serif;
     font-weight: bold;
 }
 
+.error {
+    box-shadow: inset 0px 0px 7px red;
+    border-color: red;
+}
+
+.sent {
+    width: 100%;
+    color: white;
+    position: absolute;
+    text-align: center;
+    font-family: "Fauna One", serif;
+}
+
 .form h2 {
+    color: white;
     text-align: center;
     font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
 }
@@ -285,6 +299,7 @@ img {
 }
 
 .button {
+    color: white;
     background: none;
     border-radius: 10px;
     height: 12%;

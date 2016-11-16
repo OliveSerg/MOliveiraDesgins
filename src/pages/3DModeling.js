@@ -21,7 +21,7 @@ export default class Modeling extends React.Component {
     }
 
     makeImgComp(source, caption, id){
-        return <div className='gallery-item'><img onClick={this.toggleGallery.bind(this)} id={id} src={source}/><p className='caption hide'>{caption}</p></div>
+        return <div key={id} className='gallery-item'><img onClick={this.toggleGallery.bind(this)} id={id} src={source}/><p className='caption hide'>{caption}</p></div>
     }
 
     toggleGallery(ev){
@@ -51,7 +51,7 @@ export default class Modeling extends React.Component {
         let galleryComp = ""
         if(current && current.match(/^m/)){
             const model = current.match(/\d+/)[0]
-            modelComp = <iframe allowfullscreen webkitallowfullscreen width="640" height="480" frameborder="0" seamless src={images.models[model].source}></iframe>
+            modelComp = <iframe allowFullScreen width="640" height="480" frameBorder="0" seamless src={images.models[model].source}></iframe>
         } else if(current && current.match(/^i/)){
             const model = current.match(/\d+/)[0]
             galleryComp = <Gallery current={model}>{imgComps}</Gallery> 
