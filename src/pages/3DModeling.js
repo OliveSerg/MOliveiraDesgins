@@ -51,7 +51,7 @@ export default class Modeling extends React.Component {
         let galleryComp = ""
         if(current && current.match(/^m/)){
             const model = current.match(/\d+/)[0]
-            modelComp = <iframe allowFullScreen width="640" height="480" frameBorder="0" seamless src={images.models[model].source}></iframe>
+            modelComp = <iframe allowFullScreen frameBorder="0" seamless src={images.models[model].source}></iframe>
         } else if(current && current.match(/^i/)){
             const model = current.match(/\d+/)[0]
             galleryComp = <Gallery current={model}>{imgComps}</Gallery> 
