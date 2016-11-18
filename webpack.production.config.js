@@ -39,6 +39,11 @@ module.exports ={
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
+        new webpack.optimize.UglifyJsPlugin({
+            compressor: {
+                warnings: false
+            }
+        }),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.AggressiveMergingPlugin()
             ],
@@ -46,7 +51,7 @@ module.exports ={
         root: [path.resolve('./src/')],
         extensions: ['', '.js', '.css']
     },
-    devtool: 'eval-source-map',
+    devtool: 'source-map',
     devServer: {
         historyApiFallBack: true
     }

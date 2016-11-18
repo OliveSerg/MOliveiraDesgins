@@ -15,7 +15,7 @@ export default class Contact extends React.Component {
 
     mail(ev){
         ev.preventDefault()
-        const {contact_form, contact_email, contact_name, contact_message} = this.refs
+        var {contact_form, contact_email, contact_name, contact_message} = this.refs
         const email = this.validEmail()
         const name = this.validName()
         const message = this.validMessage()
@@ -30,6 +30,9 @@ export default class Contact extends React.Component {
                     message: contact_message.value
                 }
             }).always((response)=>{
+                contact_email.value = "";
+                contact_name.value = "";
+                contact_message.value = "";
                 this.setState({
                     sent: true
                 })
@@ -85,7 +88,7 @@ export default class Contact extends React.Component {
         const {email, name, message, sent} = this.state
         let sentComp = ""
         if(sent){
-            sentComp = <p className="sent">Thank you for contact me.<br/> I will get back to you as soon as I can.</p>
+            sentComp = <p className="sent">Thank you for contacting me.<br/> I will get back to you as soon as I can.</p>
         }
         const footerStyle = {
             color: "#fff",
